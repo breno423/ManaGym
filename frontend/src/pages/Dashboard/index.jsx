@@ -13,10 +13,12 @@ import {
     X,
     ChevronLeft,
     ChevronRight,
+    ClipboardList,
 } from "lucide-react";
 import styles from "./styles.module.css";
 import { useSettings } from "../../context/SettingsContext";
 import { formatValue } from "../../utils/formatValue";
+import { Link } from "react-router-dom";
 
 const widgetsIniciais = [
     {
@@ -158,15 +160,23 @@ export default function Dashboard() {
                         <span className={styles.navLabel}>Alunos</span>
                     </a>
 
+                    <a className={styles.navItem} title="Planos">
+                        <ClipboardList size={18} />
+                        <span className={styles.navLabel}>Planos</span>
+                    </a>
+
                     <a className={styles.navItem} title="Financeiro">
                         <DollarSign size={18} />
                         <span className={styles.navLabel}>Financeiro</span>
                     </a>
 
-                    <a className={styles.navItem} title="Configurações">
+                    <Link
+                        to="/settings"
+                        className={styles.navItem}
+                    >
                         <Settings size={18} />
                         <span className={styles.navLabel}>Configurações</span>
-                    </a>
+                    </Link>
                 </nav>
 
                 <button className={styles.logoutBtn} onClick={handleLogout} title="Sair">
