@@ -1,7 +1,14 @@
 import AppRoutes from "./routes/AppRoutes";
+import { useSettings } from "./context/SettingsContext";
 
 function App() {
-    return <AppRoutes />;
+    const { theme } = useSettings();
+
+    return (
+        <div data-theme={theme}>
+            <AppRoutes />
+        </div>
+    );
 }
 
 export default App;

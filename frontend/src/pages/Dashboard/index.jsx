@@ -15,6 +15,8 @@ import {
     ChevronRight,
 } from "lucide-react";
 import styles from "./styles.module.css";
+import { useSettings } from "../../context/SettingsContext";
+import { formatValue } from "../../utils/formatValue";
 
 const widgetsIniciais = [
     {
@@ -39,6 +41,7 @@ const widgetsIniciais = [
 
 export default function Dashboard() {
 
+    const { format } = useSettings();
     const navigate = useNavigate();
 
     const [usuarioLogado, setUsuarioLogado] = useState(null);
@@ -208,7 +211,12 @@ export default function Dashboard() {
 
                                 <div className={styles.profileDivider} />
 
-                                <a className={styles.profileMenuItem}>
+                                <a
+                                    className={styles.profileMenuItem}
+                                    onClick={() => {
+                                        navigate("/settings");
+                                    }}
+                                >
                                     <Settings size={16} />
                                     Configurações
                                 </a>
@@ -240,10 +248,15 @@ export default function Dashboard() {
                             >
                                 <div className={styles.widgetHeader}>
                                     <div className={styles.widgetIcon}>
-                                        <Icon size={26} />
+                                        <Icon size={26} />  
                                     </div>
+                               
                                     <GripVertical size={18} className={styles.gripIcon} />
                                 </div>
+
+                                <span>
+                                    {formatValue(widget.valor, format)}
+                                </span>
 
                                 <span className={styles.widgetValue}>{widget.valor}</span>
                                 <span className={styles.widgetLabel}>{widget.titulo}</span>

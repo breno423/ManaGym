@@ -43,7 +43,7 @@
 }
 
 .sidebarLogo h1{
-    font-family:"Oswald",sans-serif;
+    font-family: "Odibee Sans", sans-serif;
     font-size:18px;
     letter-spacing:.1em;
     text-transform:uppercase;
@@ -128,7 +128,7 @@
     cursor:pointer;
     padding:11px 14px;
     border-radius:10px;
-    font-family:"Manrope",sans-serif;
+    font-family:"Odibee Sans", sans-serif;
     font-size:14px;
     font-weight:500;
     color:var(--text-lo);
@@ -211,7 +211,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-family:"Oswald",sans-serif;
+    font-family:"Oswald", sans-serif;
     font-weight:600;
     font-size:14px;
     color:#1a1305;
@@ -226,7 +226,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-family:"Oswald",sans-serif;
+    font-family: "Oswald", serif;
     font-weight:600;
     font-size:17px;
     color:#1a1305;
@@ -314,7 +314,7 @@
     margin-top:2px;
     background:transparent;
     border:none;
-    font-family:"Manrope",sans-serif;
+    font-family:"Odibee Sans", sans-serif;
     font-size:13px;
     font-weight:600;
     color:var(--error);
@@ -404,7 +404,7 @@
 .widget:hover .gripIcon{ opacity:1; }
 
 .widgetValue{
-    font-family:"Oswald",sans-serif;
+    font-family: "Bodoni Moda", serif;
     font-size:34px;
     font-weight:600;
     color:var(--text-hi);
