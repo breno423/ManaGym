@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from app.core.security import create_access_token
+from jose import jwt, JWTError
+from app.core.config import settings
 
 from app.database.deps import get_db
 from app.schemas.usuario import UsuarioCreate
@@ -12,11 +14,18 @@ router = APIRouter(
     tags=["Autenticação"]
 )
 
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
+
 @router.post("/register")
 def register(
     usuario: UsuarioCreate,
     db: Session = Depends(get_db)
 ):
+
+    print("PAYLOAD RECEBIDO:", usuario)
+    print("SENHA:", usuario.senha)
+    print("TIPO:", type(usuario.senha))
+
     existente = crud_usuario.get_by_email(
         db,
         usuario.email
@@ -66,3 +75,27 @@ def login(
         "access_token": token,
         "token_type": "bearer"
     }
+
+@router.get("/me")
+def get_me(
+    token: str = Depends(oauth2_scheme),
+    db = Depends(get_db)
+):
+    try:
+        payload = jwt.decode(
+            token,
+            settings.SECRET_KEY,
+            algorithms=[settings.ALGORITHM]
+        )
+
+        user_id = payload.get("id")
+
+        usuario = crud_usuario.get_by_id(db, user_id)
+
+        if not usuario:
+            raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
+        return usuario
+
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token inválido")

@@ -19,3 +19,15 @@ export const register = (nome, email, senha) => {
         senha,
     });
 };
+
+export async function getMe() {
+    const token = localStorage.getItem("token");
+
+    const response = await api.get("/auth/me", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    return response.data;
+}
