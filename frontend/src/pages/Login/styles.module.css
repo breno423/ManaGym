@@ -1,0 +1,199 @@
+ :root{
+    --bg-0:#0a0a0b;
+    --bg-1:#141416;
+    --card-1:#181819;
+    --card-2:#101011;
+    --gold-1:#f3d387;
+    --gold-2:#c9973f;
+    --gold-3:#8a6a2e;
+    --steel:#3a3a3d;
+    --text-hi:#f3efe6;
+    --text-lo:#8f8a80;
+    --error:#e0524f;
+  }
+ 
+  *{ box-sizing:border-box; }
+ 
+  body{ margin:0; font-family:"Manrope",sans-serif; }
+ 
+  .container{
+      width:100%;
+      min-height:100vh;
+ 
+      display:flex;
+      justify-content:center;
+      align-items:center;
+ 
+      background:
+        radial-gradient(600px 400px at 50% 18%, rgba(201,151,63,.14), transparent 70%),
+        radial-gradient(1000px 700px at 50% 100%, rgba(255,255,255,.03), transparent 60%),
+        var(--bg-0);
+      position:relative;
+      overflow:hidden;
+  }
+ 
+  /* subtle plate texture in the corners, like a gym floor vignette */
+  .container::before,
+  .container::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      border:1px solid rgba(201,151,63,.06);
+      pointer-events:none;
+  }
+  .container::before{ top:-260px; left:-180px; }
+  .container::after{ bottom:-280px; right:-200px; }
+ 
+  .card{
+ 
+      width:380px;
+      position:relative;
+      z-index:1;
+ 
+      background:
+        linear-gradient(160deg, var(--card-1), var(--card-2));
+ 
+      border:1px solid rgba(201,151,63,.18);
+      border-radius:18px;
+ 
+      padding:40px;
+ 
+      display:flex;
+      flex-direction:column;
+ 
+      gap:18px;
+ 
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,255,255,.02) inset,
+        0 1px 0 rgba(255,255,255,.04) inset;
+  }
+ 
+  .logo{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+ 
+      gap:10px;
+ 
+      color:var(--gold-1);
+      margin-bottom:4px;
+  }
+ 
+  .logo .bar-icon{
+      width:88px;
+      height:auto;
+      filter: drop-shadow(0 4px 10px rgba(201,151,63,.35));
+  }
+ 
+  .logo h1{
+      font-family:"Oswald",sans-serif;
+      font-size:26px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin:2px 0 0;
+      background:linear-gradient(180deg, var(--gold-1), var(--gold-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+  }
+ 
+  .logo span.sub{
+      font-family:"Manrope",sans-serif;
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--text-lo);
+  }
+ 
+  .card h2{
+      text-align:center;
+      margin:0 0 4px;
+      font-family:"Oswald",sans-serif;
+      font-weight:500;
+      letter-spacing:.03em;
+      color:var(--text-hi);
+      font-size:19px;
+  }
+ 
+  .card input{
+ 
+      padding:14px 16px;
+ 
+      border-radius:10px;
+ 
+      border:1px solid var(--steel);
+      background:rgba(255,255,255,.02);
+      color:var(--text-hi);
+ 
+      outline:none;
+ 
+      font-size:15px;
+      font-family:"Manrope",sans-serif;
+      transition:.2s border-color, .2s box-shadow, .2s background;
+  }
+ 
+  .card input::placeholder{ color:var(--text-lo); }
+ 
+  .card input:focus{
+      border-color:var(--gold-2);
+      background:rgba(201,151,63,.05);
+      box-shadow:0 0 0 3px rgba(201,151,63,.14);
+  }
+ 
+  .card button{
+ 
+      border:none;
+ 
+      cursor:pointer;
+ 
+      padding:14px;
+ 
+      border-radius:10px;
+ 
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:13px;
+      font-family:"Manrope",sans-serif;
+ 
+      background:linear-gradient(180deg, var(--gold-1), var(--gold-2));
+      color:#1a1305;
+ 
+      transition:.2s transform, .2s box-shadow, .2s filter;
+      box-shadow:0 8px 20px rgba(201,151,63,.25);
+  }
+ 
+  .card button:hover{
+      filter:brightness(1.08);
+      transform:translateY(-1px);
+      box-shadow:0 10px 26px rgba(201,151,63,.35);
+  }
+ 
+  .card button:active{
+      transform:translateY(0);
+      filter:brightness(.96);
+  }
+ 
+  .card .link-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:13px;
+      color:var(--text-lo);
+      margin-top:-6px;
+  }
+ 
+  .card .link-row a{
+      color:var(--gold-1);
+      text-decoration:none;
+  }
+  .card .link-row a:hover{ text-decoration:underline; }
+ 
+  .error{
+      color:var(--error);
+      text-align:center;
+      font-size:14px;
+  }
+ 
