@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,500&family=Odibee+Sans&display=swap');
+
+.container {
+    padding: 40px;
+    background: #0f0f11;
+    min-height: 100vh;
+    color: #f2f2f2;
+    font-family: 'Bodoni Moda', serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: 0.5px;
+    margin: 0;
+    color: #f5d789;
+}
+
+.subtitle {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9a9a9a;
+    margin: 6px 0 0;
+}
+
+.newButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border: 1px solid #f5d789;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f5d789, #d8b45f);
+    color: #1a1a1a;
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 14px rgba(245, 215, 137, 0.25);
+}
+
+.newButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 215, 137, 0.35);
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    background: #1a1a1d;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 10px 16px;
+    max-width: 420px;
+    transition: border-color 0.15s ease;
+}
+
+.searchBox:focus-within {
+    border-color: #f5d789;
+}
+
+.searchIcon {
+    color: #8a8a8a;
+}
+
+.searchInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f2f2f2;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 15px;
+}
+
+.searchInput::placeholder {
+    color: #6f6f6f;
+}
+
+.tableWrapper {
+    background: #17171a;
+    border: 1px solid #26262a;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #b9a06a;
+    background: #1d1d21;
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2e;
+}
+
+.table td {
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid #232327;
+    font-size: 15px;
+    color: #e4e4e4;
+}
+
+.row {
+    transition: background 0.15s ease;
+}
+
+.row:hover {
+    background: #1e1e22;
+}
+
+.row:last-child td {
+    border-bottom: none;
+}
+
+.nameCell {
+    font-weight: 600;
+    color: #f5f5f5;
+}
+
+.actionsHeader {
+    text-align: right !important;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 40px 0;
+    font-family: 'Odibee Sans', sans-serif;
+    letter-spacing: 1px;
+    color: #7a7a7a;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.statusAtivo {
+    background: rgba(93, 214, 133, 0.15);
+    color: #5dd685;
+    border: 1px solid rgba(93, 214, 133, 0.4);
+}
+
+.statusInativo {
+    background: rgba(214, 93, 93, 0.15);
+    color: #e07a7a;
+    border: 1px solid rgba(214, 93, 93, 0.4);
+}
+
+.statusPendente {
+    background: rgba(245, 215, 137, 0.15);
+    color: #f5d789;
+    border: 1px solid rgba(245, 215, 137, 0.4);
+}
+
+.statusDefault {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cfcfcf;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.editButton,
+.deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2e;
+    background: #1d1d21;
+    color: #cfcfcf;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.editButton:hover {
+    border-color: #f5d789;
+    color: #f5d789;
+}
+
+.deleteButton:hover {
+    border-color: #e07a7a;
+    color: #e07a7a;
+}

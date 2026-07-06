@@ -155,10 +155,13 @@ export default function Dashboard() {
                         <span className={styles.navLabel}>Dashboard</span>
                     </a>
 
-                    <a className={styles.navItem} title="Alunos">
+                    <Link
+                        to="/alunos"
+                        className={styles.navItem}
+                    >
                         <Users size={18} />
                         <span className={styles.navLabel}>Alunos</span>
-                    </a>
+                    </Link>
 
                     <a className={styles.navItem} title="Planos">
                         <ClipboardList size={18} />

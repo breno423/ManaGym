@@ -26,3 +26,15 @@ class Academia(Base):
         back_populates="academia",
         cascade="all, delete-orphan"
     )
+
+    planos = relationship(
+      "Plano",
+      back_populates="academia",
+      cascade="all, delete-orphan"
+    )
+
+    alunos = relationship(
+      "Aluno",
+      back_populates="academia",
+      cascade="all, delete-orphan"
+    )
